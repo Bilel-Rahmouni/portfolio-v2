@@ -32,6 +32,12 @@ const Accomplishments = () => {
       description: "Started my journey as a web development freelancer.",
     },
     {
+      date: "2020",
+      title: "Self-taught Developer",
+      description:
+        "Started my journey as a self-taught developer,during covid-19 pandemic periode.",
+    },
+    {
       date: "2016",
       title: "Electronic Engineer",
       description:

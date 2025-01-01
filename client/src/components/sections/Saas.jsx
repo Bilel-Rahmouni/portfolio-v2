@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import iconmakerImage from "../../assets/saas/iconmaker.png";
+import iconmakerImage from "../../assets/saas/iconmakert.png";
 
 const Saas = () => {
   const titleVariants = {
