@@ -9,9 +9,10 @@ const Navbar = () => {
 
   const handleNavClick = (section) => {
     setActiveTab(section);
+    setIsOpen(false);
     const element = document.getElementById(section);
     if (element) {
-      const navHeight = 90; // Navbar height + margin (60px + 30px)
+      const navHeight = 90;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - navHeight;
 
@@ -40,11 +41,11 @@ const Navbar = () => {
         {isOpen ? <FiX /> : <FiMenu />}
       </MenuButton>
 
-      <NavGroup>
+      <NavGroup $isOpen={isOpen}>
         <NavItem
           href="#skills"
           $active={activeTab === "skills"}
-          onClick={() => setActiveTab("skills")}
+          onClick={() => handleNavClick("skills")}
         >
           Skills
         </NavItem>
@@ -52,7 +53,7 @@ const Navbar = () => {
         <NavItem
           href="#startups"
           $active={activeTab === "startups"}
-          onClick={() => setActiveTab("startups")}
+          onClick={() => handleNavClick("startups")}
         >
           Startups
         </NavItem>
@@ -66,7 +67,7 @@ const Navbar = () => {
         <NavItem
           href="#accomplishments"
           $active={activeTab === "accomplishments"}
-          onClick={() => setActiveTab("accomplishments")}
+          onClick={() => handleNavClick("accomplishments")}
         >
           Accomplishments
         </NavItem>
@@ -94,6 +95,10 @@ const Nav = styled.nav`
   z-index: 1000;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 2px;
+
+  @media (max-width: 768px) {
+    margin: 20px;
+  }
 `;
 
 const Logo = styled(motion.div)`
@@ -175,6 +180,21 @@ const NavItem = styled.a`
       width: calc(100% - 50px);
     }
   }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 15px;
+    justify-content: center;
+
+    &::after {
+      bottom: 10px;
+      left: 15px;
+    }
+
+    &:hover::after {
+      width: calc(100% - 30px);
+    }
+  }
 `;
 
 const NavGroup = styled.div`
@@ -184,6 +204,22 @@ const NavGroup = styled.div`
   height: 100%;
   background: transparent;
   gap: 2px;
+
+  @media (max-width: 768px) {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: rgba(20, 20, 20, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    gap: 10px;
+    height: auto;
+    display: ${({ $isOpen }) => ($isOpen ? "flex" : "none")};
+    border-radius: 2px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
 `;
 
 const NavLinks = styled.div`
@@ -230,6 +266,11 @@ const BuyNowButton = styled.button`
     &::before {
       transform: translate(-50%, -50%) rotate(45deg) translateY(0);
     }
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 15px;
   }
 `;
 
