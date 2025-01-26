@@ -6,6 +6,12 @@ const Accomplishments = () => {
   const accomplishments = [
     {
       date: "2025",
+      title: "CouponsFetcher",
+      description:
+        "Started CouponsFetcher.com, an saas website for searching online coupons.",
+    },
+    {
+      date: "2025",
       title: "Dusbusters",
       description:
         "Started dusbusters.dk, a freelancing website for cleaning service.",
@@ -77,7 +83,7 @@ const Accomplishments = () => {
             >
               <TimelineDate>{item.date}</TimelineDate>
               <TimelineContent $isEven={index % 2 === 0}>
-                <TimelineDot />
+                <TimelineDot $isEven={index % 2 === 0} />
                 <TimelineCard
                   $isEven={index % 2 === 0}
                   as={motion.div}
@@ -170,7 +176,7 @@ const TimelineContent = styled.div`
 
 const TimelineDot = styled.div`
   position: absolute;
-  ${(props) => (props.$isEven ? "right: -6px" : "left: -6px")};
+  ${(props) => (props.$isEven ? "right: -6px " : "left: -6px")};
   top: 50%;
   width: 12px;
   height: 12px;

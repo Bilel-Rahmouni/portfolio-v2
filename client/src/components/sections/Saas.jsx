@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import iconmakerImage from "../../assets/saas/iconmakert.png";
+import dogfetcher from "../../assets/saas/fetcherdog.jpg";
 
 const Saas = () => {
   const titleVariants = {
@@ -253,6 +254,18 @@ const saas = [
       "Subscription-based premium features using Stripe",
       "Cloud storage and sharing capabilities",
       "Export in multiple formats and sizes",
+    ],
+  },
+  {
+    title: "CouponsFetcher",
+    description:
+      "A SaaS website for searching coupons online. Displays coupons for affeliate marketing",
+    image: dogfetcher,
+    technologies: ["React", "Tailwind CSS", "Node.js", "MongoDB"],
+    demo: "https://couponsfetcher.com",
+    features: [
+      "Filter coupons by categories and subcategories and stores",
+      "display coupons and links for offers",
     ],
   },
 ];

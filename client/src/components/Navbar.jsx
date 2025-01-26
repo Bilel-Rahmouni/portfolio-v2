@@ -49,20 +49,19 @@ const Navbar = () => {
         >
           Skills
         </NavItem>
-
-        <NavItem
-          href="#startups"
-          $active={activeTab === "startups"}
-          onClick={() => handleNavClick("startups")}
-        >
-          Startups
-        </NavItem>
         <NavItem
           href="#saas"
           $active={activeTab === "saas"}
           onClick={() => handleNavClick("saas")}
         >
           Saas
+        </NavItem>
+        <NavItem
+          href="#startups"
+          $active={activeTab === "startups"}
+          onClick={() => handleNavClick("startups")}
+        >
+          Startups
         </NavItem>
         <NavItem
           href="#accomplishments"
