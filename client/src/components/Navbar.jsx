@@ -5,7 +5,7 @@ import { FiMenu, FiX } from "react-icons/fi";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState("saas");
+  const [activeTab, setActiveTab] = useState("home");
 
   const handleNavClick = (section) => {
     setActiveTab(section);
