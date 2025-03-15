@@ -34,8 +34,13 @@ const Accomplishments = () => {
     },
     {
       date: "2023",
+      title: "PXLZ Studio",
+      description: "Started working as a Full Stack Web Developer at PXLZ Studio in Aarus, Denmark.",
+    },
+    {
+      date: "2021",
       title: "Software Engineer",
-      description: "Started my journey as a web development freelancer.",
+      description: "Started my journey as a web development freelancer in Athens, Greece.",
     },
     {
       date: "2020",

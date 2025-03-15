@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import meImage from "../assets/me.jpg";
 
 const Hero = () => {
   const titles = [
@@ -37,51 +38,62 @@ const Hero = () => {
 
   return (
     <HeroSection id="home">
-      <HeroContent>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+      <HeroContainer>
+        <HeroContent>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <Title>
+              <span>I'm</span>
+            </Title>
+            <Name>BILEL RAHMOUNI</Name>
+            <Title>
+              <TypewriterText>
+                <TypewriterContent>
+                  {typewriterText}
+                  <Cursor>|</Cursor>
+                </TypewriterContent>
+              </TypewriterText>
+            </Title>
+            <Description>
+              When I'm not e-biking or trying to make a robot, I'm developing software, or trying to change the world sometimes.
+            </Description>
+          </motion.div>
+          <ButtonContainer>
+            <PrimaryButton
+              as={motion.button}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => (window.location.href = "#contact")}
+            >
+              GET IN TOUCH
+            </PrimaryButton>
+            <SecondaryButton
+              as={motion.button}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() =>
+                window.open("https://github.com/Bilel-Rahmouni", "_blank")
+              }
+            >
+              VIEW GITHUB
+            </SecondaryButton>
+          </ButtonContainer>
+        </HeroContent>
+        <ImageContainer
+          as={motion.div}
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{
+            duration: 0.8,
+            delay: 0.2
+          }}
         >
-          {/* <Greeting>WELCOME TO THE FUTURE</Greeting> */}
-          <Title>
-            <span>I'm</span>
-          </Title>
-          <Name>BILEL RAHMOUNI</Name>
-          <Title>
-            <TypewriterText>
-              <TypewriterContent>
-                {typewriterText}
-                <Cursor>|</Cursor>
-              </TypewriterContent>
-            </TypewriterText>
-          </Title>
-          <Description>
-            Transforming ideas into immersive, interactive realities.
-          </Description>
-        </motion.div>
-        <ButtonContainer>
-          <PrimaryButton
-            as={motion.button}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => (window.location.href = "#contact")}
-          >
-            GET IN TOUCH
-          </PrimaryButton>
-          <SecondaryButton
-            as={motion.button}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() =>
-              window.open("https://github.com/Bilel-Rahmouni", "_blank")
-            }
-          >
-            VIEW GITHUB
-          </SecondaryButton>
-        </ButtonContainer>
-      </HeroContent>
-
+          <ProfileImage src={meImage} alt="Bilel Rahmouni" />
+        </ImageContainer>
+      </HeroContainer>
       <GlowingOrb />
     </HeroSection>
   );
@@ -98,10 +110,59 @@ const HeroSection = styled.section`
   background: var(--dark-bg);
 `;
 
-const HeroContent = styled.div`
-  max-width: 800px;
-  text-align: center;
+const HeroContainer = styled.div`
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
   z-index: 1;
+  padding: 0 20px;
+
+  @media (max-width: 968px) {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 40px;
+  }
+`;
+
+const HeroContent = styled.div`
+  flex: 1;
+  text-align: left;
+  z-index: 1;
+
+  @media (max-width: 968px) {
+    text-align: center;
+  }
+`;
+
+const ImageContainer = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 350px;
+  margin-right: 20px;
+  margin-left: 30px;
+
+  @media (max-width: 968px) {
+    justify-content: center;
+    margin-right: 0;
+    margin-left: 0;
+  }
+`;
+
+const ProfileImage = styled.img`
+  width: 70%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(157, 0, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  @media (max-width: 968px) {
+    width: 50%;
+  }
 `;
 
 const Greeting = styled.h2`
