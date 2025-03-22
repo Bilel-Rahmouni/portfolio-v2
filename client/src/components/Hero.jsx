@@ -108,6 +108,10 @@ const HeroSection = styled.section`
   position: relative;
   overflow: hidden;
   background: var(--dark-bg);
+
+  @media (max-width: 968px) {
+    padding-top: 100px;
+  }
 `;
 
 const HeroContainer = styled.div`

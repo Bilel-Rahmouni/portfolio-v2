@@ -10,12 +10,12 @@ const Accomplishments = () => {
       description:
         "Started CouponsFetcher.com, an saas website for searching online coupons.",
     },
-    {
-      date: "2025",
-      title: "Dusbusters",
-      description:
-        "Started dusbusters.dk, a freelancing website for cleaning service.",
-    },
+    // {
+    //   date: "2025",
+    //   title: "Dusbusters",
+    //   description:
+    //     "Started dusbusters.dk, a freelancing website for cleaning service.",
+    // },
     {
       date: "2024",
       title: "Renklar",

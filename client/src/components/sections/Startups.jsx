@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import wyngoLogo from "../../assets/startups/wyngo.png";
 import renklarLogo from "../../assets/startups/renklar.jpeg";
-import dustbustersLogo from "../../assets/startups/dustbusters.png";
+// import dustbustersLogo from "../../assets/startups/dustbusters.png";
 
 const Startups = () => {
   const titleVariants = {
@@ -289,36 +289,38 @@ const startups = [
     app: "https://play.google.com/store/apps/details?id=com.foregroundserviceapplication&hl=en",
   },
   {
-    name: "renklar.dk & renklar.pro",
+    name: "renklar.dk",
+      // & renklar.pro",
     role: "Full Stack Developer",
     description:
-      "renklar.dk: A cleaning company service for the private market.renklar.pro: A cleaning service platform for the professional business market.",
+      "renklar.dk: A cleaning company service for the private market.",
+      // renklar.pro: A cleaning service platform for the professional business market.",
     logo: renklarLogo,
     achievements: [
       "Build the website renklar.dk",
-      "Build the platform renklar.pro",
+      // "Build the platform renklar.pro",
       "Developed service management workflow",
     ],
     technologies: ["React", "Tailwind CSS", "Node.js", "MongoDB"],
     websites: [
       { name: "renklar.dk", url: "https://renklar.dk" },
-      { name: "renklar.pro", url: "https://renklar.pro" },
+      // { name: "renklar.pro", url: "https://renklar.pro" },
     ],
   },
-  {
-    name: "DustBusters",
-    role: "Frontend Developer",
-    description:
-      "A modern cleaning service platform that streamlines booking and management of cleaning services with an intuitive user interface and automated scheduling.",
-    logo: dustbustersLogo,
-    achievements: [
-      "Designed and implemented responsive UI",
-      "Created dynamic booking system",
-      "Integrated AWS services for media handling",
-    ],
-    technologies: ["React", "Tailwind CSS", "AWS"],
-    website: "https://dustbusters.dk",
-  },
+  // {
+  //   name: "DustBusters",
+  //   role: "Frontend Developer",
+  //   description:
+  //     "A modern cleaning service platform that streamlines booking and management of cleaning services with an intuitive user interface and automated scheduling.",
+  //   logo: dustbustersLogo,
+  //   achievements: [
+  //     "Designed and implemented responsive UI",
+  //     "Created dynamic booking system",
+  //     "Integrated AWS services for media handling",
+  //   ],
+  //   technologies: ["React", "Tailwind CSS", "AWS"],
+  //   website: "https://dustbusters.dk",
+  // },
 ];
 
 export default Startups;
