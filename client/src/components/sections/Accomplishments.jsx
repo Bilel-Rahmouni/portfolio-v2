@@ -9,6 +9,10 @@ const Accomplishments = () => {
       title: "CouponsFetcher",
       description:
         "Started CouponsFetcher.com, an saas website for searching online coupons.",
+    },{
+      date: "2024",
+      title: "PXLZ Studio",
+      description: "Started pxlz.dk, a web development agency.",
     },
     // {
     //   date: "2025",
@@ -32,11 +36,7 @@ const Accomplishments = () => {
       description:
         "Developed a web application for a local business to manage their inventory and sales.",
     },
-    {
-      date: "2023",
-      title: "PXLZ Studio",
-      description: "Started working as a Full Stack Web Developer at PXLZ Studio in Aarus, Denmark.",
-    },
+    
     {
       date: "2021",
       title: "Software Engineer",
