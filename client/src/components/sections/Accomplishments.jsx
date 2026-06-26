@@ -1,104 +1,136 @@
 import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import {
+  Section,
+  Container,
+  SectionHeader,
+  SectionTitle,
+  Card,
+} from "../../styles/shared";
+
+const accomplishments = [
+  {
+    date: "2026",
+    title: "Indigenous Tech",
+    description:
+      "Technology studio for web, mobile, and digital products.",
+    url: "https://indigenous-tech.com",
+    branches: [
+      {
+        label: "Mint Studio",
+        focus: "Development",
+        url: "https://mintstudio.io",
+      },
+      {
+        label: "Pixels Studio",
+        focus: "Digital marketing",
+        url: "https://pxlz.dk",
+      },
+    ],
+  },
+  {
+    date: "2024",
+    title: "Renklar",
+    description: "Cleaning services company.",
+    branches: [
+      { label: "renklar.dk", url: "https://renklar.dk" },
+      { label: "lumara.hu", url: "https://lumara.hu" },
+      { label: "dustbusters.dk", url: "https://dustbusters.dk" },
+    ],
+  },
+  {
+    date: "2021",
+    title: "Software Engineer",
+    description:
+      "Started freelancing as a web developer in Athens, Greece.",
+  },
+  {
+    date: "2020",
+    title: "Self-taught Developer",
+    description:
+      "Began learning development during the COVID-19 pandemic.",
+  },
+  {
+    date: "2018",
+    title: "Teleperformance",
+    description: "Salesman, then manager at Teleperformance.",
+  },
+  {
+    date: "2016",
+    title: "Electronic Engineer",
+    description: "Started as an electronic engineer at SAGEM Tunisia.",
+  },
+  {
+    date: "2015",
+    title: "Engineering Degree",
+    description:
+      "Graduated from the National School of Applied Sciences of Tunis, Tunisia.",
+  },
+];
 
 const Accomplishments = () => {
-  const accomplishments = [
-    {
-      date: "2025",
-      title: "CouponsFetcher",
-      description:
-        "Started CouponsFetcher.com, an saas website for searching online coupons.",
-    },{
-      date: "2024",
-      title: "PXLZ Studio",
-      description: "Started pxlz.dk, a web development agency.",
-    },
-    // {
-    //   date: "2025",
-    //   title: "Dusbusters",
-    //   description:
-    //     "Started dusbusters.dk, a freelancing website for cleaning service.",
-    // },
-    {
-      date: "2024",
-      title: "Renklar",
-      description: "Started renklar.dk, a cleaning company.",
-    },
-    {
-      date: "2024",
-      title: "Iconmaker",
-      description: "Developed my first SAAS, iconmaker.pro.",
-    },
-    {
-      date: "2024",
-      title: "Wyngo",
-      description:
-        "Developed a web application for a local business to manage their inventory and sales.",
-    },
-    
-    {
-      date: "2021",
-      title: "Software Engineer",
-      description: "Started my journey as a web development freelancer in Athens, Greece.",
-    },
-    {
-      date: "2020",
-      title: "Self-taught Developer",
-      description:
-        "Started my journey as a self-taught developer,during covid-19 pandemic periode.",
-    },
-    {
-      date: "2016",
-      title: "Electronic Engineer",
-      description:
-        "Started my journey as a electronic engineer at SAGEM Tunisia.",
-    },
-    {
-      date: "2015",
-      title: "Engineering Degree",
-      description:
-        "Graduated from the National School of Applied Sciences of Tunis, Tunisia.",
-    },
-  ];
-
   return (
     <Section id="accomplishments">
       <Container>
-        <SectionTitle
-          as={motion.h2}
-          initial={{ y: -50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
+        <SectionHeader
+          as={motion.div}
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.4 }}
         >
-          Accomplishments
-        </SectionTitle>
+          <SectionTitle>Timeline</SectionTitle>
+        </SectionHeader>
         <Timeline>
-          <TimelineLine />
-          {accomplishments.map((item, index) => (
+          {accomplishments.map((item, i) => (
             <TimelineItem
-              key={index}
-              $isEven={index % 2 === 0}
+              key={`${item.date}-${item.title}`}
               as={motion.div}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.2 }}
+              transition={{ duration: 0.4, delay: i * 0.05 }}
             >
               <TimelineDate>{item.date}</TimelineDate>
-              <TimelineContent $isEven={index % 2 === 0}>
-                <TimelineDot $isEven={index % 2 === 0} />
-                <TimelineCard
-                  $isEven={index % 2 === 0}
-                  as={motion.div}
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <TimelineTitle>{item.title}</TimelineTitle>
-                  <TimelineDescription>{item.description}</TimelineDescription>
-                </TimelineCard>
-              </TimelineContent>
+              <TimelineCard>
+                <TimelineTitle>
+                  {item.url ? (
+                    <TitleLink
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {item.title}
+                    </TitleLink>
+                  ) : (
+                    item.title
+                  )}
+                </TimelineTitle>
+                <TimelineDescription>{item.description}</TimelineDescription>
+                {item.branches?.length > 0 && (
+                  <BranchesList>
+                    {item.branches.map((branch) => (
+                      <BranchItem key={branch.label}>
+                        {branch.url ? (
+                          <BranchLink
+                            href={branch.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {branch.label}
+                          </BranchLink>
+                        ) : (
+                          <BranchLabel>{branch.label}</BranchLabel>
+                        )}
+                        {branch.focus && (
+                          <BranchFocus>{branch.focus}</BranchFocus>
+                        )}
+                      </BranchItem>
+                    ))}
+                  </BranchesList>
+                )}
+              </TimelineCard>
             </TimelineItem>
           ))}
         </Timeline>
@@ -107,125 +139,109 @@ const Accomplishments = () => {
   );
 };
 
-const Section = styled.section`
-  min-height: 100vh;
-  padding: 120px 0 100px;
-  position: relative;
-  background: var(--dark-bg);
-`;
-
-const Container = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  position: relative;
-  z-index: 1;
-`;
-
-const SectionTitle = styled.h2`
-  font-size: 48px;
-  color: white;
-  margin-bottom: 50px;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-`;
-
 const Timeline = styled.div`
-  position: relative;
-  max-width: 1000px;
-  margin: 0 auto;
-`;
-
-const TimelineLine = styled.div`
-  position: absolute;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(
-    to bottom,
-    var(--neon-purple) 0%,
-    var(--neon-blue) 100%
-  );
-  opacity: 0.3;
-  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  max-width: 640px;
 `;
 
 const TimelineItem = styled.div`
-  display: flex;
-  justify-content: ${(props) => (props.$isEven ? "flex-start" : "flex-end")};
-  margin-bottom: 50px;
-  padding-left: ${(props) => (props.$isEven ? "0" : "50%")};
-  padding-right: ${(props) => (props.$isEven ? "50%" : "0")};
-  position: relative;
-`;
-
-const TimelineDate = styled.div`
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 20px;
-  color: var(--neon-blue);
-  font-weight: bold;
-  // background: var(--dark-bg);
-  padding: 0 15px;
-  z-index: 2;
-`;
-
-const TimelineContent = styled.div`
-  position: relative;
-  width: 100%;
-  padding: ${(props) => (props.$isEven ? "0 30px 0 0" : "0 0 0 30px")};
-`;
-
-const TimelineDot = styled.div`
-  position: absolute;
-  ${(props) => (props.$isEven ? "right: -6px " : "left: -6px")};
-  top: 50%;
-  width: 12px;
-  height: 12px;
-  background: var(--neon-purple);
-  border-radius: 50%;
-  border: 2px solid var(--dark-bg);
-  z-index: 2;
-  transform: translateY(-50%);
-`;
-
-const TimelineCard = styled.div`
-  background: rgba(30, 30, 30, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-  padding: 20px;
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: var(--space-lg);
+  padding-bottom: var(--space-lg);
   position: relative;
 
-  &::before {
+  &:not(:last-child)::before {
     content: "";
     position: absolute;
-    ${(props) => (props.$isEven ? "right: -8px" : "left: -8px")};
-    top: 50%;
-    width: 16px;
-    height: 16px;
-    background: rgba(30, 30, 30, 0.5);
-    border-left: 1px solid rgba(255, 255, 255, 0.1);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    transform: ${(props) =>
-      props.$isEven
-        ? "translateY(-50%) rotate(225deg)"
-        : "translateY(-50%) rotate(45deg)"};
+    left: 36px;
+    top: 8px;
+    bottom: 0;
+    width: 1px;
+    background: var(--border);
+    transform: translateX(-50%);
+  }
+
+  &:last-child {
+    padding-bottom: 0;
   }
 `;
 
+const TimelineDate = styled.span`
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+  padding-top: 2px;
+  text-align: right;
+`;
+
+const TimelineCard = styled(Card)`
+  padding: var(--space-md) var(--space-lg);
+`;
+
 const TimelineTitle = styled.h3`
-  font-size: 20px;
-  color: white;
-  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 6px;
+`;
+
+const TitleLink = styled.a`
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--accent);
+  }
 `;
 
 const TimelineDescription = styled.p`
-  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  color: var(--text-subtle);
   line-height: 1.6;
-  font-size: 16px;
+`;
+
+const BranchesList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: var(--space-sm);
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--border);
+`;
+
+const BranchItem = styled.li`
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+`;
+
+const BranchLabel = styled.span`
+  font-size: 13px;
+  color: var(--text);
+`;
+
+const BranchLink = styled.a`
+  font-size: 13px;
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--accent);
+  }
+`;
+
+const BranchFocus = styled.span`
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 `;
 
 export default Accomplishments;

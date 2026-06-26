@@ -4,8 +4,7 @@ import GlobalStyles from "./styles/GlobalStyles";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import Saas from "./components/sections/Saas";
-import Startups from "./components/sections/Startups";
+import Portfolio from "./components/sections/Portfolio";
 import Skills from "./components/sections/Skills";
 import Accomplishments from "./components/sections/Accomplishments";
 import Contact from "./components/sections/Contact";
@@ -17,8 +16,7 @@ function App() {
       <Navbar />
       <Hero />
       <Skills />
-      <Saas />
-      <Startups />
+      <Portfolio />
       <Accomplishments />
       <Contact />
       <Footer />
@@ -28,8 +26,7 @@ function App() {
 
 const AppContainer = styled.div`
   min-height: 100vh;
-  background: var(--dark-bg);
-  overflow-x: hidden;
+  background: var(--bg);
 `;
 
 export default App;
