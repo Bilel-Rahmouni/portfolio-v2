@@ -36,7 +36,7 @@ export const portfolioGroups = [
       { label: "IconMaker", url: "https://iconmaker.pro" },
       { label: "Brain Gym", url: null },
       { label: "Dozone", url: null },
-      { label: "tounsi.com", url: "https://tounsi.com" },
+      { label: "tounsy.com", url: "https://tounsy.com" },
       { label: "Koultounsi", url: null },
       { label: "Ultimate Calculator", url: null },
     ],
