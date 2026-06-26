@@ -55,8 +55,8 @@ const Hero = () => {
             <Cursor />
           </Role>
           <Description>
-            Full stack developer building SaaS products and startup platforms.
-            Background in electronics and automation engineering.
+            Building technology-driven companies — engineering, product, and
+            operations from idea to launch and beyond.
           </Description>
           <ButtonRow>
             <Button
